@@ -1,5 +1,8 @@
 package unalcol.agents.examples.labyrinth.multeseo.eater.isi2017I.thewise;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import unalcol.agents.Action;
 import unalcol.agents.AgentProgram;
 import unalcol.agents.Percept;
@@ -10,17 +13,21 @@ public class Agent1 implements AgentProgram
 {
 	private SimpleLanguage language;
 	private Vector<String> cmds = new Vector<String>();
+	private Position currentPosition = new Position( 0, 0 );
+	private HashMap<Node, HashMap<Node, Byte>> tree = new HashMap<>();
+	private ArrayList<Node> queue = new ArrayList<>();
 	
 	public Agent1( SimpleLanguage language )
 	{
 		this.language = language;
+		queue.add( new Node( currentPosition, 0 ) );
 	}
 	
 	public int accion( boolean PF, boolean PD, boolean PA, boolean PI, boolean MT, boolean FAIL )
 	{
 		if( MT )
 			return -1;
-		int side = 0;
+		int side = 1;
 
         return side;
 	}
